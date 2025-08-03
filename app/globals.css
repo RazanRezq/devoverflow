@@ -47,8 +47,7 @@
   --breakpoint-xs: 420px;
 
   /* Font family variables */
-  --font-inter: var(--font-inter);
-  --font-space-grotesk: "Space Grotesk", sans-serif;
+  /* Note: --font-inter and --font-space-grotesk are defined by Next.js localFont in layout.tsx */
 
   /* Base radius for consistent border-radius values */
   --radius: 0.5rem;
