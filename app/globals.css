@@ -147,6 +147,14 @@
     background-color: var(--color-dark-400);
   }
 
+  /* background */
+  .background-image-auth-dark {
+    background-image: url("/images/auth-dark.png");
+  }
+  .background-image-auth-light {
+    background-image: url("/images/auth-light.png");
+  }
+
   /* Text color utilities */
   .text-dark100_light900 {
     color: var(--color-dark-100);
