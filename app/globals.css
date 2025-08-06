@@ -6,6 +6,11 @@
   color: var(--color-light-900);
 }
 
+/* Auth background image dark mode override - targets only auth layout */
+.dark .auth-layout {
+  background-image: var(--background-image-auth-dark) !important;
+}
+
 /* CSS Variables */
 :root {
   --color-primary-100: #fff1e6;
