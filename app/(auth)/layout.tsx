@@ -5,10 +5,10 @@ import SocialAuthForm from "@/components/forms/SocialAuthForm";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main 
+    <main
       className="auth-layout flex min-h-screen items-center justify-center bg-cover bg-no-repeat bg-center px-4 py-10"
       style={{
-        backgroundImage: 'var(--background-image-auth-light)',
+        backgroundImage: "var(--background-image-auth-light)",
       }}
     >
       <section className="light-border background-light800_dark200 shadow-light100_dark100 min-w-full rounded-[10px] border px-4 py-10 shadow-md sm:min-w-[520px] sm:px-8">
