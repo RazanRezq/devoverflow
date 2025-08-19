@@ -1,6 +1,4 @@
-import { auth, signOut } from "@/auth";
-import { Button } from "@/components/ui/button";
-import ROUTES from "@/constants/routes";
+import { auth } from "@/auth";
 const Home = async () => {
   const session = await auth();
   console.log("Session:", session);
@@ -11,18 +9,6 @@ const Home = async () => {
         A community-driven platform for asking and answering programming
         questions.
       </p>
-
-      <form
-        className="px-10 pt-[100px]"
-        action={async () => {
-          "use server";
-          await signOut({
-            redirectTo: ROUTES.SIGN_IN,
-          });
-        }}
-      >
-        <Button type="submit">Sign out </Button>
-      </form>
     </>
   );
 };
