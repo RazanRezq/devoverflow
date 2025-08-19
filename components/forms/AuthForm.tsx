@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import ROUTES from "@/constants/routes";
 
+// Form props
 interface AuthFormProps<T extends FieldValues> {
   schema: ZodType<T>;
   defaultValues: T;
@@ -24,6 +25,7 @@ interface AuthFormProps<T extends FieldValues> {
   onSubmit: (data: T) => Promise<{ success: boolean }>;
 }
 
+// Auth form component
 const AuthForm = <T extends FieldValues>({
   schema,
   defaultValues,
@@ -42,6 +44,7 @@ const AuthForm = <T extends FieldValues>({
     await onSubmit(data as T);
   };
 
+  // Submit button text
   const buttonText = formType === "SIGN_IN" ? "Sign In" : "Sign Up";
 
   return (
@@ -50,6 +53,7 @@ const AuthForm = <T extends FieldValues>({
         onSubmit={form.handleSubmit(handleSubmit)}
         className="mt-10 space-y-6"
       >
+        {/* Form fields */}
         {Object.keys(defaultValues).map((field) => (
           <FormField
             key={field}
@@ -76,6 +80,7 @@ const AuthForm = <T extends FieldValues>({
           />
         ))}
 
+        {/* Submit button */}
         <Button
           disabled={form.formState.isSubmitting}
           className="primary-gradient paragraph-medium min-h-12 w-full rounded-2 px-4 py-3 font-inter !text-light-900"
@@ -87,6 +92,7 @@ const AuthForm = <T extends FieldValues>({
             : buttonText}
         </Button>
 
+        {/* Conditional link based on form type */}
         {formType === "SIGN_IN" ? (
           <p>
             Don&apos;t have an account?{" "}
