@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Devoverflow
+
+Devoverflow is a modern, full-stack web application inspired by developer Q&A platforms. It enables users to ask questions, share knowledge, and connect with the tech community. Built with Next.js, TypeScript, Tailwind CSS, and Bun, it offers a performant, scalable, and visually appealing experience.
+
+## Features
+
+- **User Authentication:** Secure sign-in/sign-up with social providers (Google, GitHub).
+- **Ask & Answer Questions:** Post questions, provide answers, and engage in discussions.
+- **Tagging System:** Organize questions by technology tags for easy discovery.
+- **User Profiles:** View and edit personal profiles, track contributions.
+- **Community & Jobs:** Explore community posts and job opportunities.
+- **Responsive Design:** Optimized for desktop and mobile devices.
+- **Modern UI:** Built with Tailwind CSS and custom components for a clean look.
+
+## Tech Stack
+
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend:** Next.js API routes, Bun
+- **Authentication:** NextAuth.js
+- **State Management:** React Context
+- **Styling:** Tailwind CSS, PostCSS
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/) (v1+)
+- [Node.js](https://nodejs.org/) (if Bun is not used)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Running the App
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app will be available at `http://localhost:3000`.
 
-## Learn More
+### Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file and add your authentication provider credentials:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GITHUB_CLIENT_ID=your-github-client-id
+GITHUB_CLIENT_SECRET=your-github-client-secret
+NEXTAUTH_SECRET=your-nextauth-secret
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/            # Next.js app directory
+components/     # Reusable UI components
+constants/      # Static values and routes
+context/        # React context providers
+lib/            # Utility functions and validations
+public/         # Static assets (images, icons)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For questions or job opportunities, please contact [your-email@example.com].
