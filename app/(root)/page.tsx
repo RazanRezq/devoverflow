@@ -1,14 +1,44 @@
-import { auth } from "@/auth";
+import Link from "next/link";
+
+import LocalSearch from "@/components/search/LocalSearch";
+import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
+
 const Home = async () => {
-  const session = await auth();
-  console.log("Session:", session);
+  const questions = [
+    { id: "1", title: "How to use React with TypeScript?" },
+    {
+      id: "2",
+      title: "What is the difference between let and var in JavaScript?",
+    },
+    { id: "3", title: "How to center a div using CSS?" },
+  ];
   return (
     <>
-      <h1>Welcome to Dev Overflow</h1>
-      <p>
-        A community-driven platform for asking and answering programming
-        questions.
-      </p>
+      <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
+        <h1 className="h1-bold text-dark100_light900">All Questions</h1>
+        <Button
+          className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900"
+          asChild
+        >
+          <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
+        </Button>
+      </section>
+      <section className="mt-11">
+        <LocalSearch
+          route="/"
+          imgSrc="/icons/search.svg"
+          placeholder="Search questions..."
+          otherClasses="flex-1"
+        />
+      </section>
+      HomeFilter
+      <div className="mt-10 flex w-full flex-col gap-6">
+        <p>Question Card 1</p>
+        <p>Question Card 1</p>
+        <p>Question Card 1</p>
+        <p>Question Card 1</p>
+      </div>
     </>
   );
 };
