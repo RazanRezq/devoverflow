@@ -4,15 +4,60 @@ import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 
-const Home = async () => {
-  const questions = [
-    { id: "1", title: "How to use React with TypeScript?" },
-    {
-      id: "2",
-      title: "What is the difference between let and var in JavaScript?",
-    },
-    { id: "3", title: "How to center a div using CSS?" },
-  ];
+const questions = [
+  {
+    id: "1",
+    title: "How to use React with TypeScript?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "TypeScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 2,
+    views: 100,
+    createdAt: "2023-10-01T12:00:00Z",
+  },
+  {
+    id: "2",
+    title: "How to learn typescript quickly?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 2,
+    views: 100,
+    createdAt: "2023-10-01T12:00:00Z",
+  },
+  {
+    id: "3",
+    title: "How to use Next.js with TypeScript?",
+    tags: [
+      { _id: "1", name: "Next.js" },
+      { _id: "2", name: "TypeScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 2,
+    views: 100,
+    createdAt: "2023-10-01T12:00:00Z",
+  },
+];
+
+// query  = 'react'
+interface SearchParams {
+  searchParams: Promise<{ [key: string]: string }>;
+}
+const Home = async ({ searchParams }: SearchParams) => {
+  const { query = "" } = await searchParams;
+  // const {data} = await axios.get('/api/questions', {query: {search: query}})
+
+  const filteredQuestions = questions.filter((question) =>
+    question.title.toLowerCase().includes(query?.toLowerCase())
+  );
+
   return (
     <>
       <section className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -32,12 +77,11 @@ const Home = async () => {
           otherClasses="flex-1"
         />
       </section>
-      HomeFilter
+      {/* HomeFilter */}
       <div className="mt-10 flex w-full flex-col gap-6">
-        <p>Question Card 1</p>
-        <p>Question Card 1</p>
-        <p>Question Card 1</p>
-        <p>Question Card 1</p>
+        {filteredQuestions.map((question) => (
+          <h1 key={question.id}>{question.title}</h1>
+        ))}
       </div>
     </>
   );
