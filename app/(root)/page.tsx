@@ -21,7 +21,7 @@ const questions = [
   },
   {
     id: "2",
-    title: "How to learn typescript quickly?",
+    title: "How to learn JavaScript quickly?",
     tags: [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
@@ -52,12 +52,21 @@ interface SearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 const Home = async ({ searchParams }: SearchParams) => {
-  const { query = "" } = await searchParams;
+  const { query = "", filter = "" } = await searchParams;
   // const {data} = await axios.get('/api/questions', {query: {search: query}})
 
-  const filteredQuestions = questions.filter((question) =>
-    question.title.toLowerCase().includes(query?.toLowerCase())
-  );
+  const filteredQuestions = questions.filter((question) => {
+    const matchesQuery = question.title
+      .toLowerCase()
+      .includes(query?.toLowerCase());
+    const matchesFilter =
+      !filter ||
+      question.tags.some(
+        (tag) => tag.name.toLowerCase() === filter.toLowerCase()
+      );
+
+    return matchesQuery && matchesFilter;
+  });
 
   return (
     <>
