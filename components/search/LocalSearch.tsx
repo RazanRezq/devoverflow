@@ -12,12 +12,16 @@ interface Props {
   placeholder: string;
   otherClasses?: string;
 }
+
+// A reusable local search component that updates the URL query parameters based on user input.
 const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
 
+
+  // State for the search term input field
   const [searchTerm, setSearchTerm] = useState(query);
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
