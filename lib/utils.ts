@@ -10,10 +10,12 @@ interface Badges {
   BRONZE: number;
 }
 
+// Merges class names intelligently using clsx and tailwind-merge
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Returns the Devicon class name for a given technology name
 export function getDeviconClassName(techName: string) {
   const normalizedTech = techName.replace(/[ .]/g, "").toLowerCase();
 
@@ -22,9 +24,11 @@ export function getDeviconClassName(techName: string) {
   return `${techMap[normalizedTech] || "devicon-devicon-plain"} colored`;
 }
 
+// Returns a description for a given technology name
 export function getTechDescription(techName: string): string {
   const normalizedTech = techName.replace(/[ .]/g, "").toLowerCase();
 
+  // Returns a description for a given technology name
   // Mapping technology names to descriptions
   const techDescriptionMap: { [key: string]: string } = {
     javascript:
@@ -60,6 +64,7 @@ export function getTechDescription(techName: string): string {
   );
 }
 
+// Formats numbers into human-readable strings (e.g., 1500 -> 1.5K)
 export function formatNumber(number: number) {
   if (number >= 1000000) {
     return (number / 1000000).toFixed(1) + "M";
@@ -70,6 +75,7 @@ export function formatNumber(number: number) {
   }
 }
 
+// Returns a human-readable timestamp like '5 mins ago', '2 hours ago', etc.
 export const getTimeStamp = (createdAt: Date): string => {
   const date = new Date(createdAt);
   const now = new Date();
@@ -95,6 +101,7 @@ export const getTimeStamp = (createdAt: Date): string => {
   return `${diffDays} days ago`;
 };
 
+// Assigns badges based on user activity
 export function assignBadges(params: {
   criteria: {
     type: keyof typeof BADGE_CRITERIA;
@@ -123,6 +130,7 @@ export function assignBadges(params: {
   return badgeCounts;
 }
 
+// Processes a job title string to remove undefined or null values and returns a cleaned-up title
 export function processJobTitle(title: string | undefined | null): string {
   // Check if title is undefined or null
   if (title === undefined || title === null) {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,7 @@ const questions = [
     upvotes: 10,
     answers: 2,
     views: 100,
-    createdAt: "2023-10-01T12:00:00Z",
+    createdAt: new Date(),
   },
   {
     id: "2",
@@ -30,7 +31,7 @@ const questions = [
     upvotes: 10,
     answers: 2,
     views: 100,
-    createdAt: "2023-10-01T12:00:00Z",
+    createdAt: new Date(),
   },
   {
     id: "3",
@@ -43,7 +44,7 @@ const questions = [
     upvotes: 10,
     answers: 2,
     views: 100,
-    createdAt: "2023-10-01T12:00:00Z",
+    createdAt: new Date(),
   },
 ];
 
@@ -90,7 +91,7 @@ const Home = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question.id}>{question.title}</h1>
+          <QuestionCard key={question.id} question={question} />
         ))}
       </div>
     </>
