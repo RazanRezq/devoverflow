@@ -11,7 +11,7 @@ interface Props {
 }
 
 const QuestionCard = ({
-  question: { id, title, author, createdAt, upvotes, answers, views },
+  question: { id, title, author, createdAt, upvotes, answers, views, tags },
 }: Props) => {
   return (
     <div className="card-wrapper rounded-[10px] p-9 sm:px-11">
@@ -29,7 +29,7 @@ const QuestionCard = ({
       </div>
 
       <div className="mt-3.5 flex w-full flex-wrap gap-2">
-        {tags.map((tag: Tag) => (
+        {tags?.map((tag: Tag) => (
           <TagCard key={tag._id} _id={tag._id} name={tag.name} compact />
         ))}
       </div>
