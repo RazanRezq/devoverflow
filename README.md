@@ -74,4 +74,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For questions or job opportunities, please contact [your-email@example.com].
+For questions or job opportunities, please contact razan.rezzq@gmail.com.
