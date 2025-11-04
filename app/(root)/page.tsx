@@ -14,10 +14,14 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "TypeScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
-    upvotes: 10,
-    answers: 2,
-    views: 100,
+    author: {
+      _id: "1",
+      name: "Razan",
+      image: "https://avatar.iran.liara.run/public/64",
+    },
+    upvotes: 89,
+    answers: 45,
+    views: 200,
     createdAt: new Date(),
   },
   {
@@ -27,10 +31,14 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
-    upvotes: 10,
-    answers: 2,
-    views: 100,
+    author: {
+      _id: "1",
+      name: "Razan",
+      image: "https://avatar.iran.liara.run/public/64",
+    },
+    upvotes: 34,
+    answers: 7,
+    views: 60,
     createdAt: new Date(),
   },
   {
@@ -40,10 +48,14 @@ const questions = [
       { _id: "1", name: "Next.js" },
       { _id: "2", name: "TypeScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
-    upvotes: 10,
-    answers: 2,
-    views: 100,
+    author: {
+      _id: "1",
+      name: "Razan",
+      image: "https://avatar.iran.liara.run/public/64",
+    },
+    upvotes: 60,
+    answers: 20,
+    views: 129,
     createdAt: new Date(),
   },
 ];
@@ -77,7 +89,7 @@ const Home = async ({ searchParams }: SearchParams) => {
           className="primary-gradient min-h-[46px] px-4 py-3 text-light-900"
           asChild
         >
-          <Link href={ROUTES.ASK_QUESTION}>Ask a Question For real</Link>
+          <Link href={ROUTES.ASK_QUESTION}>Ask a Question</Link>
         </Button>
       </section>
       <section className="mt-11">
